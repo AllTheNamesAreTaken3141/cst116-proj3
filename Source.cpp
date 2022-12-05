@@ -88,6 +88,7 @@ vector<vector<int>> total = {
 int dotProduct(vector<int> r1, vector<int> r2);
 void displayMenu();
 void processMenuChoice(int menuChoice);
+void printVector(vector<vector<int>> m);
 vector<vector<int>> getNewMatrix();
 vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2);
 vector<vector<int> > multiplyMatrix(vector<vector<int> > m1, vector<vector<int> > m2);
@@ -107,11 +108,15 @@ int main()
     m1 = getNewMatrix();
     cout << endl<< "Please input data for the second matrix."<< endl;
     m2 = getNewMatrix();
-    displayMenu();
+    cout << endl;
     int menuChoice = 0;
-    while (menuChoice != 0) {
-
+    while (menuChoice != 5) {
+        displayMenu();
+        cin >> menuChoice;
+        processMenuChoice(menuChoice);
+        cout << endl;
     }
+    return 0;
     
     
     logFile.close(); // Closes the log file because you should always close your files. Make sure this is the very last line in main.
@@ -121,7 +126,8 @@ void displayMenu() {
         << "1. Enter a new matrix 1." << endl
         << "2. Enter a new matrix 2." << endl
         << "3. Add matrixes." << endl
-        << "4. Multiply matrixes" << endl << endl;
+        << "4. Multiply matrixes" << endl
+        << "5. End program."<< endl;
 }
 vector<vector<int>> getNewMatrix() {
     vector<vector<int>> m3 = {};
@@ -132,7 +138,7 @@ vector<vector<int>> getNewMatrix() {
         row = {};
         for (int c = 0; c < 3; c++)
         {
-            cout << "What do you want to put in at spot " << r << " " << c << "?";
+            cout << "What do you want to put in at spot " << r << " " << c << "? ";
             cin >> temp;
             row.push_back(temp);
         }
@@ -150,10 +156,12 @@ void processMenuChoice(int menuChoice) {
         break;
     case 3:
         total=addMatrix(m1,m2);
+        cout << "Adding Matrixes:" << endl;
         printVector(total);
         break;
     case 4:
         total=multiplyMatrix(m1,m2);
+        cout << "Multiplying Matrixes:" << endl;
         printVector(total);
         break;
     case 5:
@@ -163,8 +171,9 @@ void processMenuChoice(int menuChoice) {
 void printVector(vector<vector<int>> m) {
     for (int r = 0; r < size(m); r++) {
         for (int c = 0; c < size(m); c++) {
-            cout << m[r][c];
+            cout << m[r][c]<< ", ";
         }
+        cout << endl;
     }
 }
 int dotProduct(vector<int> r1, vector<int> r2)
