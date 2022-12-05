@@ -82,6 +82,8 @@ vector<vector<int> > m2 = {
 
 int dotProduct(vector<int> r1, vector<int> r2);
 void displayMenu();
+void processMenuChoice(int menuChoice);
+vector<vector<int>> getNewMatrix();
 vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2);
 vector<vector<int> > multiplyMatrix(vector<vector<int> > m1, vector<vector<int> > m2);
 
@@ -96,8 +98,11 @@ int main()
     // it will destroy the first log.
     ofstream logFile("./logs/test-log.txt");
     Tee teeOut(std::cout, logFile); // Creates a new Tee named teeOut. Now all you have to do is use teeOut instead of cout (so, "cout << "Hello, world!" << endl;" becomes "teeOut << "Hello, world!" << endl;").
-
-
+    cout << "Please input data for the first matrix."<< endl;
+    m1 = getNewMatrix();
+    cout << endl<< "Please input data for the second matrix."<< endl;
+    m2 = getNewMatrix();
+    
     
     logFile.close(); // Closes the log file because you should always close your files. Make sure this is the very last line in main.
 }
@@ -107,6 +112,41 @@ void displayMenu() {
         << "2. Enter a new matrix 2." << endl
         << "3. Add matrixes." << endl
         << "4. Multiply matrixes" << endl << endl;
+}
+vector<vector<int>> getNewMatrix() {
+    vector<vector<int>> m3 = {};
+    vector<int> row = {};
+    int temp;
+    for (int r = 0; r < 3; r++)
+    {
+        row = {};
+        for (int c = 0; c < 3; c++)
+        {
+            cout << "What do you want to put in at spot " << r << " " << c << "?";
+            cin >> temp;
+            row.push_back(temp);
+        }
+        m3.push_back(row);
+    }
+    return m3;
+}
+void processMenuChoice(int menuChoice) {
+    switch (menuChoice) {
+    case 1:
+        m1 = getNewMatrix();
+        break;
+    case 2:
+        m2 = getNewMatrix();;
+        break;
+    case 3:
+        addMatrix(m1,m2);
+        break;
+    case 4:
+        multiplyMatrix(m1,m2);
+        break;
+    case 5:
+        break;
+    }
 }
 
 int dotProduct(vector<int> r1, vector<int> r2)
