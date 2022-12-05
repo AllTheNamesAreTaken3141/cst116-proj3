@@ -3,6 +3,9 @@
 #include <fstream>
 #include <vector>
 using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
 
 // I stole this from the internet and I have basically no idea how it works,
 // but it lets you cout to both the console and a text file at the same time,
@@ -78,6 +81,8 @@ vector<vector<int> > m2 = {
 };
 
 int dotProduct(vector<int> r1, vector<int> r2);
+void displayMenu();
+vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2);
 vector<vector<int> > multiplyMatrix(vector<vector<int> > m1, vector<vector<int> > m2);
 
 int main()
@@ -96,6 +101,13 @@ int main()
     
     logFile.close(); // Closes the log file because you should always close your files. Make sure this is the very last line in main.
 }
+void displayMenu() {
+    cout << "What do you want to do with your matrixes?" << endl
+        << "1. Enter a new matrix 1." << endl
+        << "2. Enter a new matrix 2." << endl
+        << "3. Add matrixes." << endl
+        << "4. Multiply matrixes" << endl << endl;
+}
 
 int dotProduct(vector<int> r1, vector<int> r2)
 {
@@ -111,7 +123,21 @@ int dotProduct(vector<int> r1, vector<int> r2)
     }
     return p1 + p2;
 }
-
+vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2) {
+    
+    vector<vector<int>> m3 = {};
+    vector<int> row = {};
+    for (int r = 0; r < 3; r++)
+    {
+        row = {};
+        for (int c = 0; c < 3; c++)
+        {
+            row.push_back(m1[r][c] + m2[r][c]);
+        }
+        m3.push_back(row);
+    }
+    return m3;
+}
 vector<vector<int> > multiplyMatrix(vector<vector<int> > m1, vector<vector<int> > m2)
 {
     vector<vector<int> > rows = { m1[0], m1[1], m1[2] };
