@@ -79,6 +79,11 @@ vector<vector<int> > m2 = {
     {-5, 72, 50},
     {59, 29, -35}
 };
+vector<vector<int>> total = {
+    {0,0,0},
+    {0,0,0},
+    {0,0,0}
+};
 
 int dotProduct(vector<int> r1, vector<int> r2);
 void displayMenu();
@@ -102,6 +107,11 @@ int main()
     m1 = getNewMatrix();
     cout << endl<< "Please input data for the second matrix."<< endl;
     m2 = getNewMatrix();
+    displayMenu();
+    int menuChoice = 0;
+    while (menuChoice != 0) {
+
+    }
     
     
     logFile.close(); // Closes the log file because you should always close your files. Make sure this is the very last line in main.
@@ -139,16 +149,24 @@ void processMenuChoice(int menuChoice) {
         m2 = getNewMatrix();;
         break;
     case 3:
-        addMatrix(m1,m2);
+        total=addMatrix(m1,m2);
+        printVector(total);
         break;
     case 4:
-        multiplyMatrix(m1,m2);
+        total=multiplyMatrix(m1,m2);
+        printVector(total);
         break;
     case 5:
         break;
     }
 }
-
+void printVector(vector<vector<int>> m) {
+    for (int r = 0; r < size(m); r++) {
+        for (int c = 0; c < size(m); c++) {
+            cout << m[r][c];
+        }
+    }
+}
 int dotProduct(vector<int> r1, vector<int> r2)
 {
     int p1 = r1[0];
@@ -167,10 +185,10 @@ vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2) {
     
     vector<vector<int>> m3 = {};
     vector<int> row = {};
-    for (int r = 0; r < 3; r++)
+    for (int r = 0; r < size(m1); r++)
     {
         row = {};
-        for (int c = 0; c < 3; c++)
+        for (int c = 0; c < size(m1); c++)
         {
             row.push_back(m1[r][c] + m2[r][c]);
         }
