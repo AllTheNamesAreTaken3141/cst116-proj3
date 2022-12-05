@@ -176,19 +176,14 @@ void printVector(vector<vector<int>> m) {
         cout << endl;
     }
 }
-int dotProduct(vector<int> r1, vector<int> r2)
+int dotProduct(vector<int> r, vector<int> c)
 {
-    int p1 = r1[0];
-    int p2 = r2[0];
-    for (int i = 1; i < size(r1); i++)
+    int p=0;
+    for (int i = 0; i < size(r); i++)
     {
-        p1 *= r1[i];
+        p += r[i]* c[i];
     }
-    for (int i = 1; i < size(r2); i++)
-    {
-        p2 *= r2[i];
-    }
-    return p1 + p2;
+    return p;
 }
 vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2) {
     
