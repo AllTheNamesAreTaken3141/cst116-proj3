@@ -79,6 +79,7 @@ vector<vector<int> > m2 = {
     {-5, 72, 50},
     {59, 29, -35}
 };
+//Used to assign product and sum
 vector<vector<int>> total = {
     {0,0,0},
     {0,0,0},
@@ -121,6 +122,7 @@ int main()
     
     logFile.close(); // Closes the log file because you should always close your files. Make sure this is the very last line in main.
 }
+//Prints out all menu options for the user to choose from
 void displayMenu() {
     cout << "What do you want to do with your matrixes?" << endl
         << "1. Enter a new matrix 1." << endl
@@ -129,6 +131,7 @@ void displayMenu() {
         << "4. Multiply matrixes" << endl
         << "5. End program."<< endl;
 }
+//Cycles through each spot in the matrix and asks the user to assign a value to fill the 3x3 matrix.
 vector<vector<int>> getNewMatrix() {
     vector<vector<int>> m3 = {};
     vector<int> row = {};
@@ -138,7 +141,7 @@ vector<vector<int>> getNewMatrix() {
         row = {};
         for (int c = 0; c < 3; c++)
         {
-            cout << "What do you want to put in at spot " << r << " " << c << "? ";
+            cout << "What do you want to put in row " << r << " column " << c << "? ";
             cin >> temp;
             row.push_back(temp);
         }
@@ -146,6 +149,8 @@ vector<vector<int>> getNewMatrix() {
     }
     return m3;
 }
+//Takes the menu choice given by the user and either assigns new values for each matrix, adds the matrixes and assigns the sum to total,
+//multiplies the matrixes and assigns the product to total or ends breaks the while loop in the main function to end the program.
 void processMenuChoice(int menuChoice) {
     switch (menuChoice) {
     case 1:
@@ -168,6 +173,7 @@ void processMenuChoice(int menuChoice) {
         break;
     }
 }
+//Prints the matrix in a 3x3 format, used to nicely show products and sums.
 void printVector(vector<vector<int>> m) {
     for (int r = 0; r < size(m); r++) {
         for (int c = 0; c < size(m); c++) {
@@ -176,6 +182,8 @@ void printVector(vector<vector<int>> m) {
         cout << endl;
     }
 }
+//Part of the multiplying matrixes step. Gets the row of the first matrix and the corresponding collumn of the second matrix and returns the value
+//to the multiply matrix function.
 int dotProduct(vector<int> r, vector<int> c)
 {
     int p=0;
@@ -185,6 +193,7 @@ int dotProduct(vector<int> r, vector<int> c)
     }
     return p;
 }
+//Just as the name suggests, this function adds the two matrixes together into a newly defined matrix and returns the matrix.
 vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2) {
     
     vector<vector<int>> m3 = {};
@@ -200,6 +209,8 @@ vector<vector<int>> addMatrix(vector<vector<int>> m1, vector<vector<int>> m2) {
     }
     return m3;
 }
+//The second part of the multiplyMatrix function where is seperates the matrixes into rows and columns and sends those to
+//the dotproduct function for the proper algorithm and returns it here where it's put into a seperate matrix and returned.
 vector<vector<int> > multiplyMatrix(vector<vector<int> > m1, vector<vector<int> > m2)
 {
     vector<vector<int> > rows = { m1[0], m1[1], m1[2] };
