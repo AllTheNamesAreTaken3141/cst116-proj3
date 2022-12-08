@@ -1,0 +1,47 @@
+Please input data for the first matrix.
+Enter the first row of your matrix. Separate numbers with spaces: 23 81 46
+Enter the second row of your matrix. Separate numbers with spaces: elevel
+You need to enter numbers!
+Enter the second row of your matrix. Separate numbers with spaces: eleven
+You need to enter numbers!
+Enter the second row of your matrix. Separate numbers with spaces: 19 82
+You need to enter 3 numbers!
+Enter the second row of your matrix. Separate numbers with spaces: 19 82 -13
+Enter the third row of your matrix. Separate numbers with spaces: 14 22 63
+
+Please input data for the second matrix.
+Enter the first row of your matrix. Separate numbers with spaces: 64 11 41
+Enter the second row of your matrix. Separate numbers with spaces: -9 -10 0
+Enter the third row of your matrix. Separate numbers with spaces: 19 83 27
+
+What do you want to do with your matrices?
+1. Enter a new matrix 1.
+2. Enter a new matrix 2.
+3. Add matrices.
+4. Multiply matrices
+5. End program.
+3
+Adding Matrices:
+   87,    92,    87,
+   10,    72,   -13,
+   33,   105,    90,
+
+What do you want to do with your matrices?
+1. Enter a new matrix 1.
+2. Enter a new matrix 2.
+3. Add matrices.
+4. Multiply matrices
+5. End program.
+4
+Multiplying Matrices:
+ 1617,  3261,  2185,
+  231, -1690,   428,
+ 1895,  5163,  2275,
+
+What do you want to do with your matrices?
+1. Enter a new matrix 1.
+2. Enter a new matrix 2.
+3. Add matrices.
+4. Multiply matrices
+5. End program.
+5

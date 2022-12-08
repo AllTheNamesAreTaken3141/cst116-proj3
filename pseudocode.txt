@@ -1,0 +1,29 @@
+program start:
+
+get matrix 1 from user and store it
+get matrix 2 from user and store it
+
+display menu
+menu choices:
+	1: enter new matrix 1
+	2: enter new matrix 2
+	3: add matricies together
+	4: multiply matricies together
+	5: exit
+
+get choice from user
+
+if user chooses 1:
+	get matrix 1 from user and store it
+
+if user chooses 2:
+	get matrix 2 from user and store it
+
+if user chooses 3:
+	add matrix 1 and matrix 2 together and display the sum
+
+if user chooses 4:
+	multiply matrix 1 and matrix 2 together and display the product
+
+if user chooses 5:
+	end program
